@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bowling Game in Virtual Reality</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>   
+    <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
+    <script src="throw.js"></script>
+    
+    
+  </head>
+  <body>
+    <a-scene id="scene">
+
+      <a-assets>
+        <a-asset-item id="pin" src="pin.glb">  </a-asset-item>
+      </a-assets> 
+        <!--Light-->
+      <a-entity light="type: ambient; color: yellow; intensity:0.5"></a-entity>
+
+      <!--Camera and Cursor-->
+      <a-entity
+        id="camera"
+        camera
+        position="0 1.6 0"
+        wasd-controls
+        look-controls="pointerLockEnabled: false"        
+      >
+        
+        <a-cursor></a-cursor>        
+      </a-entity>
+      <a-entity bowling-ball></a-entity>
+
+      <!--Ground-->
+      <a-plane
+        id="ground"
+        repeat="5 5"
+        position="0 1 0"
+        rotation="-90 0 0"
+        height="200"
+        width="200"
+        color="green"
+        static-body
+        visible="true"
+      >
+      </a-plane>
+
+      <a-entity id="pin1" position="-2 1.5 -10" gltf-model="#pin" scale="0.05 0.05 0.05" dynamic-body></a-entity>
+
+      <a-entity id="pin2" position="-4 1.5 -10" gltf-model="#pin" scale="0.05 0.05 0.05" dynamic-body></a-entity>
+
+      <a-entity id="pin3" position="0 1.5 -10" gltf-model="#pin" scale="0.05 0.05 0.05" dynamic-body></a-entity>
+    </a-scene>
+
+  </body>
+</html>
